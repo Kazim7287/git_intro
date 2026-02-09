@@ -24,7 +24,9 @@ const handleRegister = async (values) => {
     localStorage.setItem("token", res.token);
     localStorage.setItem("role", res.user.role);
 
-    navigate("/dashboard");
+
+navigate(`/${role}/dashboard`);
+
   } catch (err) {
     setError(err.response?.data?.message || "Registration failed");
   }

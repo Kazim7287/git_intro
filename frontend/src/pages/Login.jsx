@@ -17,8 +17,9 @@ const handleLogin = async (values) => {
 
     // assuming backend returns user object
     localStorage.setItem("role", res.user.role);
-
-    navigate("/dashboard");
+    const role = res.user.role;
+    navigate(`/${role}/dashboard`);
+    
   } catch (err) {
     setError(err.response?.data?.message || "Login failed");
   }
